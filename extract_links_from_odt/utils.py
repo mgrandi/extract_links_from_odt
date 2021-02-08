@@ -1,6 +1,7 @@
 import pathlib
 import argparse
 import logging
+import re
 
 import arrow
 
@@ -36,3 +37,21 @@ def isFileType(strict=True):
 
         return path_resolved
     return _isFileType
+
+def regexType(string_arg):
+    '''regex type for argparse
+
+    @param string_arg - the string given to us by argparse
+    @return a compiled regex object or throws an ArgumentTypeError
+
+    '''
+
+    try:
+
+        compiled_re = re.compile(string_arg)
+
+        return compiled_re
+
+    except Exception as e:
+
+        raise argparse.ArgumentTypeError("The given regual expression wasn't valid! `%s`", string_arg)

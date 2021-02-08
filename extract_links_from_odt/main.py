@@ -33,6 +33,10 @@ def main():
         dest="log_to_file",
         type=utils.isFileType(False),
         help="save the application log to a file as well as print to stdout")
+    parser.add_argument("--filter",
+        type=utils.regexType,
+        help="only write urls that match this regex filter")
+
     parser.add_argument("--verbose",
         action="store_true",
         help="Increase logging verbosity")
@@ -47,7 +51,7 @@ def main():
 
         # set up logging stuff
         logging.captureWarnings(True) # capture warnings with the logging infrastructure
-        logging_formatter = utils.ArrowLoggingFormatter("%(asctime)s %(threadName)-10s %(name)-40s %(levelname)-8s: %(message)s")
+        logging_formatter = utils.ArrowLoggingFormatter("%(asctime)s %(threadName)-10s %(name)-10s %(levelname)-8s: %(message)s")
         logging_handler = logging.StreamHandler(sys.stdout)
         logging_handler.setFormatter(logging_formatter)
         root_logger.addHandler(logging_handler)
