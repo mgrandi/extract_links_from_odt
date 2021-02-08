@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "extract_links_from_odt"
+version = "0.1.0"
+description = "extract links from a .odt file"
+authors = ["Mark Grandi <markgrandi@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+arrow = "^0.17.0"
+odfpy = "^1.4.1"
+logging_tree = "^1.8.1"
+
+[tool.poetry.dev-dependencies]
+wheel = "^0.36.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
