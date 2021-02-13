@@ -80,6 +80,6 @@ class Application:
                     if idx != 0:
                         f.write("\n")
                     f.write(f"{iter_odt_link_obj.url}")
-                    match += 1
+                    matched += 1
 
         logger.info("`%s` urls matched, `%s` urls didn't match", matched, nomatch)
